@@ -1,27 +1,30 @@
 node(){
 
-	def sonarHome = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-	
-	stage('Code Checkout'){
-		checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'GitHubCreds', url: 'https://github.com/anujdevopslearn/MavenBuild']])
-	}
-	stage('Build Automation'){
-		sh """
-			ls -lart
-			mvn clean install
-			ls -lart target
+    stage('Code Checkout 4 KALPANA'){
+        checkout scm
+    }
+    stage('Build'){
+        sh "mvn clean install"
+    }
+    stage('archiveArtifacts'){
+        
+            archiveArtifacts artifacts: 'target/*.war'
+        
+        
+    }
+        stage('teststage'){
+        
+            echo 'testing' 
+    
+    }
+    stage('teststage 4 CODE SCANNING DEMO FOR Kalpana'){
+        
+            echo 'kalpana code scanning' 
+        
+    }
 
-		"""
-	}
-	
-	stage('Code Scan'){
-		withSonarQubeEnv(credentialsId: 'SonarQubeCreds') {
-			sh "${sonarHome}/bin/sonar-scanner"
-		}
-		
-	}
-	
-	stage('Code Deployment'){
-		deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', path: '', url: 'http://54.197.62.94:8080/')], contextPath: 'Planview', onFailure: false, war: 'target/*.war'
-	}
+    stage('Code Deployment'){
+        
+        deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://http://3.142.251.193:8080//')], contextPath: 'KALPANA_demo', war: 'target/*.war'
+    }
 }
