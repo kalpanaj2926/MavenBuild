@@ -103,7 +103,7 @@
                         </div>
                     </div>                  
                     <div class="w3-container w3-padding-16 w3-card" style="background-color:#eee">
-                        <h3 class="w3-center">Blog Template</h3>
+                        <h3 class="w3-center">Blog Template kalpana</h3>
                         <div class="w3-content" style="max-width:800px">
                             <img 
                                 src="./img_temp_blog.jpg" 
