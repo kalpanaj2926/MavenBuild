@@ -25,6 +25,6 @@ node(){
 
     stage('Code Deployment'){
         
-        deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'http://3.142.251.193:8080//')], contextPath: 'KALPANA_deploy', war: 'target/*.war'
+        deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'http://3.144.31.20:8080//')], contextPath: 'KALPANA_deploy', war: 'target/*.war'
     }
 }
