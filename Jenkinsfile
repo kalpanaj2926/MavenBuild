@@ -1,6 +1,6 @@
 node(){
 
-    stage('Code Checkout 4 KALPANA'){
+    stage('Code CheckoutKALPANA-1'){
         checkout scm
     }
     stage('Build'){
@@ -25,6 +25,6 @@ node(){
 
     stage('Code Deployment'){
         
-        deploy adapters: [tomcat9(credentialsId: 'kalpana', path: '', url: 'http://3.142.251.193:8080//')], contextPath: 'KALPANA_demo-2', war: 'target/*.war'
+        deploy adapters: [tomcat9(credentialsId: 'tomcatcredentials', path: '', url: 'http://3.142.251.193:8080//')], contextPath: 'KALPANA_deploy', war: 'target/*.war'
     }
 }
