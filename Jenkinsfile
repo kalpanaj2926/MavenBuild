@@ -1,6 +1,6 @@
 node(){
 
-    stage('Code CheckoutKALPANA-1'){
+    stage('Code Checkout KALPANA-1'){
         checkout scm
     }
     stage('Build'){
